@@ -1,0 +1,27 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="scwjava_CollectionsDonotexposeinternalLists" enabled="true" level="SENSEI MARKED INFO" enabled_by_default="true" />
+    <inspection_tool class="scwjava_CollectionsDonotexposeinternalSets" enabled="true" level="SENSEI MARKED INFO" enabled_by_default="true" />
+    <inspection_tool class="scwjava_CommandInjectionUntrusteddatainProcessBuildercommand" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwjava_CommandInjectionUntrusteddatainProcessBuildercommand-Add" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwjava_Createprivateconstructorforutilityclassallfieldsmethodsarestatic" enabled="true" level="SENSEI INFO" enabled_by_default="true" />
+    <inspection_tool class="scwjava_Donotcompareclassestypesbytheirname" enabled="true" level="SENSEI WARNING" enabled_by_default="true" />
+    <inspection_tool class="scwjava_Donotcompareclassestypesbytheirnameliteral" enabled="true" level="SENSEI WARNING" enabled_by_default="true" />
+    <inspection_tool class="scwjava_Donotcompareclassestypesbytheirnameliteralinverted" enabled="true" level="SENSEI WARNING" enabled_by_default="true" />
+    <inspection_tool class="scwjava_Donotexposeinternalarray" enabled="true" level="SENSEI WARNING" enabled_by_default="true" />
+    <inspection_tool class="scwjava_ExceptionCreatedbutnotthrown" enabled="true" level="SENSEI WARNING" enabled_by_default="true" />
+    <inspection_tool class="scwjava_Incorrectequalitycheckofwrappervaluesequals" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwjava_Incorrectequalitycheckofwrappervaluesnotequals" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwjava_IncorrectuseofObjects.equals" enabled="true" level="SENSEI WARNING" enabled_by_default="true" />
+    <inspection_tool class="scwjava_InefficientuseofString.indexOf" enabled="true" level="SENSEI WARNING" enabled_by_default="true" />
+    <inspection_tool class="scwjava_InvalidcomparisonofStringtonumberprimitive" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwjava_InvalidcomparisonofStringtonumberwrapper" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwjava_PortabilityFlawAvoidlocaledependentcomparisonsequalsaftercaseconversion" enabled="true" level="SENSEI WARNING" enabled_by_default="true" />
+    <inspection_tool class="scwjava_RegexInjection" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwjava_String.formatreturnvaluebeingignored" enabled="true" level="SENSEI WARNING" enabled_by_default="true" />
+    <inspection_tool class="scwjava_StringsRegexUseEscapeRegexSpecialCharacterforAnyCharMatching" enabled="true" level="SENSEI ERROR" enabled_by_default="true" />
+    <inspection_tool class="scwjava_URLClassloaderCallsuperwhenoverridinggetPermissions" enabled="true" level="SENSEI WARNING" enabled_by_default="true" />
+    <inspection_tool class="scwjava_ValidateZipEntries" enabled="true" level="SENSEI WARNING" enabled_by_default="true" />
+  </profile>
+</component>
