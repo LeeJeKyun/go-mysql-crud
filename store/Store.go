@@ -23,7 +23,7 @@ func init() {
 	log.Println("#### DB Server Open Success ####")
 }
 
-func GetData(key int) model.User {
+func GetDetail(key int) model.User {
 	var result model.User = model.User{}
 	rows, err := mysql.Query("SELECT * FROM USER where id = ?", key)
 	if err != nil {
@@ -38,4 +38,26 @@ func GetData(key int) model.User {
 		}
 	}
 	return result
+}
+
+func GetAll() []model.User {
+	var results []model.User
+	rows, err := mysql.Query("SELECT * FROM USER")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+	for rows.Next() {
+		result := model.User{}
+		err := rows.Scan(&result.Id, &result.Name, &result.Email)
+		if err != nil {
+			log.Fatal(err)
+		}
+		results = append(results, result)
+	}
+	return results
+}
+
+func InsertOne(data model.User) int {
+
 }
