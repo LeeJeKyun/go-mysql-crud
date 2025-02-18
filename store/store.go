@@ -58,6 +58,44 @@ func GetAll() []model.User {
 	return results
 }
 
-func InsertOne(data model.User) int {
+func InsertOne(data model.User) int64 {
+	result, err := mysql.Exec("INSERT INTO USER(name, email) VALUES (?, ?)", data.Name, data.Email)
+	if err != nil {
+		log.Fatal(err)
+	}
+	insertId, err := result.LastInsertId()
+	if err != nil {
+		log.Fatal(err)
+	}
+	return insertId
+}
 
+func UpdateOne(data model.User) int64 {
+	stmt, err := mysql.Prepare("UPDATE USER set name=?, email=? WHERE id = ?")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer stmt.Close()
+
+	result, err := stmt.Exec(data.Name, data.Email, data.Id)
+	if err != nil {
+		log.Fatal(err)
+	}
+	id, err := result.LastInsertId()
+	if err != nil {
+		log.Fatal(err)
+	}
+	return id
+}
+
+func DeleteOne(data model.User) int64 {
+	result, err := mysql.Exec("DELETE FROM USER WHERE id = ?", data.Id)
+	if err != nil {
+		log.Fatal(err)
+	}
+	id, err := result.LastInsertId()
+	if err != nil {
+		log.Fatal(err)
+	}
+	return id
 }

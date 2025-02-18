@@ -2,7 +2,7 @@ package handler
 
 import (
 	"encoding/json"
-	model2 "go-mysql-crud/model"
+	"go-mysql-crud/model"
 	"go-mysql-crud/store"
 	"io"
 	"log"
@@ -43,14 +43,43 @@ func (c Client) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 		if err != nil {
 			log.Fatal(err)
 		}
-		model := model2.User{}
-		json.Unmarshal(all, model)
+		model := model.User{}
+		err = json.Unmarshal(all, &model)
+		if err != nil {
+			log.Fatal(err)
+		}
 		// 필요한 데이터가 전달될 경우 데이터 삽입
-		store.InsertOne(model)
+		one := store.InsertOne(model)
+		result := strconv.FormatInt(one, 10)
+		res.Write([]byte(result))
+
 	case "PUT":
 		// id를 제외한 다른 데이터를 수정 가능
-		// body에 json형태로 전달받은 데이터를 수정
+		all, err := io.ReadAll(req.Body)
+		if err != nil {
+			log.Fatal(err)
+		}
+		model := model.User{}
+		err = json.Unmarshal(all, &model)
+		if err != nil {
+			log.Fatal(err)
+		}
+		one := store.UpdateOne(model)
+		result := strconv.FormatInt(one, 10)
+		res.Write([]byte(result))
 	case "DELETE":
 		// id를 통해 데이터를 삭제 가능
+		all, err := io.ReadAll(req.Body)
+		if err != nil {
+			log.Fatal(err)
+		}
+		model := model.User{}
+		err = json.Unmarshal(all, &model)
+		if err != nil {
+			log.Fatal(err)
+		}
+		one := store.DeleteOne(model)
+		result := strconv.FormatInt(one, 10)
+		res.Write([]byte(result))
 	}
 }
